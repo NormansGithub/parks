@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Parks in Vancouver</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+    <link href="stylesheets/reset.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/normalize.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/login.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script>
+    </script>
+</head>
+<body>
+    <% if (error != undefined) { %>
+        <div id="login-error" class="alert alert-danger" role="alert"><%- error %></div>
+    <% } %>
+	<form action="/login" method="post">
+    	<div class="form-inline float-right">
+        	<label>Username:</label>
+        	<input type="text" name="username"/>
+    	</div>
+        <br>
+    	<div class="form-inline float-right">
+        	<label>Password:</label>
+        	<input type="password" name="password"/>
+    	</div>
+        <br><br>
+    	<div>
+        	<input id="submit-button" type="submit" value="Log In"/>
+    	</div>
+	</form>
+</body>
+</html>

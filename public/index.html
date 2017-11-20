@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Parks in Vancouver</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link href="stylesheets/reset.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/normalize.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="stylesheets/index.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="DataTables-1.10.16/css/jquery.dataTables.min.css"/>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+	<script>
+		let labels = <%- label %>;
+		let locations = <%- latLon %>;
+	</script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0PwD2ZeusO_1IpU-FzWeZxZLm9yeFZu8&callback=initMap">
+	</script>
+</head>
+<header>
+	<div class="alert alert-info text-dark">
+		<h1>Parks in Vancouver</h1>
+		<h5>
+		<% if(username){ %>
+		Welcome <a href="/profile"><%- username %></a>!
+		<br>
+	 	<a href="/logout"><small>logout</small></a>
+		<% }
+		else{ %>
+	 	<a href="/login">Login</a> or <a href="/signup">Signup</a>
+		<% } %>
+		</h5>
+	</div>
+</header>
+<body>
+	<% if (alert != undefined) { %>
+		<div class="alert alert-success"><%- alert %></div>
+	<% } %>
+	<div id="map"></div>
+	<br>
+	<table class="table table-hover table-bordered">
+		<thead class="thead-default">
+			<tr>
+				<th>Name</th>
+				<th>Address</th> 
+				<th>Size (hectare)</th>
+				<th>Neighborhood</th>
+				<th>Official</th>
+				<th>Facilities</th>
+				<th>Special Features</th>
+				<th>Washrooms</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% table.forEach(function(row, i) { %>
+				<tr>
+					<td><%- row.Name %></td>
+					<td><a onClick="showInfo(<%- i %>)" href="javascript:void(0);"><%- row.StreetNumber + ' ' + row.StreetName %></a></td>
+					<td><%- row.Hectare %></td>
+					<td><a href=<%- row.NeighborhoodURL %> target="_blank"><%- row.Neighborhood %></a></td>
+					<td data-sort="<%- !row.Official %>"><img class="icon" src="<%- getImage(row.Official) %>"/></td>
+					<td data-sort="<%- !row.Facilities %>"><img class="icon" src="<%- getImage(row.Facilities) %>"/></td>
+					<td data-sort="<%- !row.SpecialFeatures %>"><img class="icon" src="<%- getImage(row.SpecialFeatures) %>"/></td>
+					<td data-sort="<%- !row.Washrooms %>"><img class="icon" src="<%- getImage(row.Washrooms) %>"/></td>
+				</tr>
+			<% }); %>
+		</tbody>
+	</table>
+</body>
+</html>

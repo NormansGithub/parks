@@ -1,0 +1,21 @@
+@media only screen and (max-width: 768px){
+	.table{
+		overflow-y: hidden;
+	}
+}
+h1{
+	display: inline-block;
+}
+h5{
+	float: right;
+	text-align: right;
+	display: inline-block;
+}
+#map{
+	height: 400px;
+	width: 100%;
+}
+.icon{
+	height: 16px;
+	width: 16px;
+}

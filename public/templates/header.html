@@ -1,0 +1,15 @@
+<script>
+	const user = <%- Username %>;
+	const admin = <%- Administrator %>;
+</script>
+<div class="p-2 mb-2 bg-light text-dark">
+	<h1 style="display: inline-block;">Parks in Vancouver</h1>
+	<h5 style="float: right; text-align: right; display: inline-block;">
+	<% if (user) { %>
+		Welcome <a href="/profile"><%- user %></a>!
+	<% }
+	else { %>
+		 <a href="/login">Login</a> or <a href="/signup">Signup</a>
+	<% } %>
+	</h5>
+</div>

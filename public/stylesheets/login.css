@@ -1,0 +1,21 @@
+.invalid-feedback{
+	font-size: 13pt;
+}
+.alert{
+	left: 52%;
+	margin-top: 2%;
+	top: 5%;
+	display: inline-block;
+	position: fixed;
+}
+#login{
+	margin-top: 100%;
+	text-align: right;
+}
+#username, #password{
+	display: inline-block;
+}
+#submit-button{
+	position: absolute;
+	left: 50%;
+}

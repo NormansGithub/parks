@@ -1,0 +1,29 @@
+@media only screen and (min-width: 1200px){
+	#window{
+		margin-top: 14%;
+	}
+}
+@media only screen and (max-width: 1200px){
+	#window{
+		margin-top: 25%;
+	}
+}
+form, #errors{
+	position: absolute;
+}
+form:not(#submit-button){
+	top: 30%;
+}
+.invalid-feedback{
+	font-size: 13pt;
+}
+#errors{
+	position: absolute;
+	top: 0%;
+	left: 55%;
+	margin-left: -200px;
+}
+#submit-button{
+	position: absolute;
+	margin-left: 50%;
+}

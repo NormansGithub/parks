@@ -1,0 +1,1 @@
+$(document).ready(_ => $('.alert').css('margin-left', -$('.alert').outerWidth()/2));
